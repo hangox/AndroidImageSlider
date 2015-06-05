@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.daimajia.slider.library.Animations.BaseAnimationInterface;
 import com.daimajia.slider.library.Indicators.PagerIndicator;
-import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.SliderHolder;
 import com.daimajia.slider.library.Transformers.AccordionTransformer;
 import com.daimajia.slider.library.Transformers.BackgroundToForegroundTransformer;
 import com.daimajia.slider.library.Transformers.BaseTransformer;
@@ -184,11 +184,9 @@ public class SliderLayout extends RelativeLayout{
                 break;
             }
         }
-        mSliderAdapter = new SliderAdapter(mContext);
         PagerAdapter wrappedAdapter = new InfinitePagerAdapter(mSliderAdapter);
 
         mViewPager = (InfiniteViewPager)findViewById(R.id.daimajia_slider_viewpager);
-        mViewPager.setAdapter(wrappedAdapter);
 
         mViewPager.setOnTouchListener(new OnTouchListener() {
             @Override
@@ -213,6 +211,10 @@ public class SliderLayout extends RelativeLayout{
         }
     }
 
+    public void setAdapter(SliderAdapter adapter){
+        mViewPager.setAdapter(new InfinitePagerAdapter(mSliderAdapter));
+    }
+
     public void setCustomIndicator(PagerIndicator indicator){
         if(mIndicator != null){
             mIndicator.destroySelf();
@@ -223,7 +225,7 @@ public class SliderLayout extends RelativeLayout{
         mIndicator.redraw();
     }
 
-    public <T extends BaseSliderView> void addSlider(T imageContent){
+    public <T extends SliderHolder> void addSlider(T imageContent){
         mSliderAdapter.addSlider(imageContent);
     }
 
@@ -608,14 +610,14 @@ public class SliderLayout extends RelativeLayout{
      * get current slider.
      * @return
      */
-    public BaseSliderView getCurrentSlider(){
+    public SliderHolder getCurrentSlider(){
 
         if(getRealAdapter() == null)
             throw new IllegalStateException("You did not set a slider adapter");
 
         int count = getRealAdapter().getCount();
         int realCount = mViewPager.getCurrentItem() % count;
-        return  getRealAdapter().getSliderView(realCount);
+        return  getRealAdapter().getSliderHolder(realCount);
     }
 
     /**
