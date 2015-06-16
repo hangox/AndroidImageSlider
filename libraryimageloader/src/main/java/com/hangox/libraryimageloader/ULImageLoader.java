@@ -2,8 +2,8 @@ package com.hangox.libraryimageloader;
 
 import android.view.View;
 
-import com.daimajia.slider.library.ImageLoader;
-import com.daimajia.slider.library.SliderTypes.SliderHolder;
+import com.hangox.slider.ImageLoader;
+import com.hangox.slider.SliderTypes.SliderHolder;
 
 /**
  * Created With Android Studio

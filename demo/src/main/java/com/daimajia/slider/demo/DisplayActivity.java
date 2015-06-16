@@ -13,11 +13,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
-import com.daimajia.slider.library.Indicators.PagerIndicator;
-import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.SliderHolder;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.hangox.slider.Animations.DescriptionAnimation;
+import com.hangox.slider.Indicators.PagerIndicator;
+import com.hangox.slider.SliderLayout;
+import com.hangox.slider.SliderTypes.SliderHolder;
+import com.hangox.slider.SliderTypes.TextSliderView;
 
 import java.util.HashMap;
 

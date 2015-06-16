@@ -1,1 +1,1 @@
-include ':demo', ':library', ':libraryimageloader'
+include ':demo', ':library';
