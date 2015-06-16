@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
-import com.hangox.slider.ImageLoader;
+import com.hangox.slider.SliderImageLoader;
 
 /**
  * When you want to make your own slider view, you must extends from this class.
@@ -26,9 +26,6 @@ public abstract class SliderHolder {
 
     private String mDescription;
 
-    public static class Builder{
-
-    }
 
     /**
      * Scale type of the image.
@@ -132,7 +129,7 @@ public abstract class SliderHolder {
         return rootView;
     }
 
-    abstract public void bindView(ImageLoader mImageLoader);
+    abstract public void bindView(SliderImageLoader mSliderImageLoader);
 
 
     public interface OnSliderClickListener {

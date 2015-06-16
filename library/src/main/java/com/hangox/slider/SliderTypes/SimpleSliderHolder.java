@@ -24,13 +24,13 @@ public abstract class SimpleSliderHolder extends SliderHolder{
     @Override
     public void onLoadingComplected() {
         View progressbar = getView().findViewById(R.id.loading_bar);
-        if (progressbar == null) progressbar.setVisibility(View.GONE);
+        if (progressbar != null) progressbar.setVisibility(View.GONE);
     }
 
     @Override
     public void onLoadingStart() {
         View progressbar = getView().findViewById(R.id.loading_bar);
-        if(progressbar == null) progressbar.setVisibility(View.VISIBLE);
+        if(progressbar != null) progressbar.setVisibility(View.VISIBLE);
     }
 
     @Override

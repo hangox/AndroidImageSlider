@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.hangox.slider.ImageLoader;
+import com.hangox.slider.SliderImageLoader;
 import com.hangox.slider.R;
 
 
@@ -28,8 +28,8 @@ public class DefaultSliderView extends SimpleSliderHolder{
 
 
     @Override
-    public void bindView(ImageLoader mImageLoader) {
+    public void bindView(SliderImageLoader mSliderImageLoader) {
         ImageView target = (ImageView)getView().findViewById(R.id.daimajia_slider_image);
-        mImageLoader.display(getUrl(),target,getScaleType());
+        mSliderImageLoader.display(getUrl(),target,getScaleType(), this);
     }
 }

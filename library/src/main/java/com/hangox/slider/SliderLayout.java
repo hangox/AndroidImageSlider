@@ -185,9 +185,10 @@ public class SliderLayout extends RelativeLayout{
                 break;
             }
         }
-        PagerAdapter wrappedAdapter = new InfinitePagerAdapter(mSliderAdapter);
 
         mViewPager = (InfiniteViewPager)findViewById(R.id.daimajia_slider_viewpager);
+        mSliderAdapter = new SliderAdapter(getContext());
+        setAdapter(mSliderAdapter);
 
         mViewPager.setOnTouchListener(new OnTouchListener() {
             @Override
@@ -213,7 +214,13 @@ public class SliderLayout extends RelativeLayout{
     }
 
     public void setAdapter(SliderAdapter adapter){
-        mViewPager.setAdapter(new InfinitePagerAdapter(mSliderAdapter));
+        mSliderAdapter = adapter;
+        mViewPager.setAdapter(new InfinitePagerAdapter(adapter));
+    }
+
+
+    public void setSliderImageLoader(SliderImageLoader imageLoader){
+        mSliderAdapter.setSliderImageLoader(imageLoader);
     }
 
     public void setCustomIndicator(PagerIndicator indicator){

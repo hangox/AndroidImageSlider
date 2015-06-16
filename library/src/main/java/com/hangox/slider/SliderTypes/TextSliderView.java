@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.hangox.slider.ImageLoader;
+import com.hangox.slider.SliderImageLoader;
 import com.hangox.slider.R;
 
 
@@ -34,10 +34,11 @@ public class TextSliderView extends SimpleSliderHolder{
 
 
     @Override
-    public void bindView(ImageLoader mImageLoader) {
+    public void bindView(SliderImageLoader mSliderImageLoader) {
         View v = getView();
         TextView description = (TextView)v.findViewById(R.id.description);
         description.setText(getDescription());
-        mImageLoader.display(getUrl(),v.findViewById(R.id.daimajia_slider_image),getScaleType());
+        mSliderImageLoader.display(getUrl(),v.findViewById(R.id.daimajia_slider_image),
+                getScaleType(),this);
     }
 }

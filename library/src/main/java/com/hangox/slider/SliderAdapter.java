@@ -14,18 +14,27 @@ import java.util.ArrayList;
  */
 public class SliderAdapter extends PagerAdapter{
 
-    private final ImageLoader mImageLoader;
-    private Context mContext;
-    private ArrayList<SliderHolder> mImageContents;
+    private SliderImageLoader mSliderImageLoader = new SliderImageLoader() {
+        @Override
+        public void display(String url, View view, SliderHolder.ScaleType scaleType, SliderHolder textSliderView) {
 
-    public SliderAdapter(Context context, ImageLoader imageLoader){
+        }
+    };
+    private Context mContext;
+    private ArrayList<SliderHolder> mImageContents = new ArrayList<>();
+
+    public SliderAdapter(Context context){
         mContext = context;
         mImageContents = new ArrayList<>(5);
-        mImageLoader = imageLoader;
     }
 
-    public <T extends SliderHolder> void addSlider(T slider){
+    public void setSliderImageLoader(SliderImageLoader sliderImageLoader){
+        this.mSliderImageLoader = sliderImageLoader;
+    }
 
+
+    public <T extends SliderHolder> void addSlider(T slider){
+        mImageContents.add(slider);
     }
 
     public SliderHolder getSliderHolder(int position){
@@ -79,7 +88,7 @@ public class SliderAdapter extends PagerAdapter{
     public Object instantiateItem(ViewGroup container, int position) {
         SliderHolder  b = mImageContents.get(position);
         View v = b.getView();
-        b.bindView(mImageLoader);
+        b.bindView(mSliderImageLoader);
         container.addView(v);
         return v;
     }

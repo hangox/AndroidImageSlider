@@ -11,6 +11,6 @@ import com.hangox.slider.SliderTypes.SliderHolder;
  * Time 下午10:40
  * 图像加载器
  */
-public interface ImageLoader {
-    void display(String url, View view ,SliderHolder.ScaleType scaleType);
+public interface SliderImageLoader {
+    void display(String url, View view, SliderHolder.ScaleType scaleType, SliderHolder sliderHolder);
 }
