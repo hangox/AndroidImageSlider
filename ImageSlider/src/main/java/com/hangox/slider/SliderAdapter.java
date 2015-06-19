@@ -2,6 +2,7 @@ package com.hangox.slider;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -86,6 +87,7 @@ public class SliderAdapter extends PagerAdapter{
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
+        Log.i(getClass().getSimpleName(),position+"");
         SliderHolder  b = mImageContents.get(position);
         View v = b.getView();
         b.bindView(mSliderImageLoader);

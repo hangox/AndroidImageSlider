@@ -235,6 +235,7 @@ public class SliderLayout extends RelativeLayout{
 
     public <T extends SliderHolder> void addSlider(T imageContent){
         mSliderAdapter.addSlider(imageContent);
+
     }
 
     private android.os.Handler mh = new android.os.Handler(){
@@ -434,6 +435,11 @@ public class SliderLayout extends RelativeLayout{
                 break;
             }
         }
+    }
+
+    @Override
+    public boolean isInEditMode() {
+        return true;
     }
 
     /**

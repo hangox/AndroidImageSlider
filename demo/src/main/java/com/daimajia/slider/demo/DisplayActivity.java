@@ -106,12 +106,29 @@ public class DisplayActivity extends ActionBarActivity implements SliderHolder.O
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                addSLider("http://www.shenchuang.com/images/11596.files/guobiting.jpg","aldjajl");
                 mDemoSlider.setPresetTransformer(((TextView) view).getText().toString());
                 Toast.makeText(DisplayActivity.this, ((TextView) view).getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
+    }
 
+    //TODO need to fix addSlider will broken;
+    private void addSLider(String url ,String name){
+        TextSliderView textSliderView = new TextSliderView(this);
+        // initialize a SliderLayout
+        textSliderView
+                .description(name)
+                .image(url)
+                .setScaleType(SliderHolder.ScaleType.Fit)
+                .setOnSliderClickListener(this);
+
+        //add your extra information
+        textSliderView.getBundle()
+                .putString("extra",name);
+
+        mDemoSlider.addSlider(textSliderView);
     }
 
 
